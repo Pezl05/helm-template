@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.appName }}-configmap
+data:
+  index.html: |
+    <html>
+    <h1>Welcome</h1>
+    </br>
+    <h1> Software Engineer {{ .Values.env.name }} </h1>
+    </html>

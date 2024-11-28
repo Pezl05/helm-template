@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appName }}-app
+  labels:
+    app: {{ .Values.appName }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appName }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        volumeMounts:
+        - name: nginx-index-file
+          mountPath: /usr/share/nginx/html/
+      imagePullSecrets:
+      - name: {{ .Values.registry.name }}-registry
+      volumes:
+      - name: nginx-index-file
+        configMap:
+          name: {{ .Values.appName }}-configmap
