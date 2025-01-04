@@ -32,5 +32,7 @@ spec:
         - name: http
           containerPort: {{ .Values.service.targetPort }}
           protocol: TCP
+      {{- if .Values.registry.name }}
       imagePullSecrets:
       - name: {{ .Values.registry.name }}-registry
+      {{- end }}
