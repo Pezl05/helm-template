@@ -19,9 +19,15 @@ spec:
       - name: {{ .Values.appName }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        {{- if or .Values.existingEnv .Values.env }}
         envFrom:
         - secretRef:
+          {{- if .Values.existingEnv }}
+            name: {{ .Values.existingEnv }}
+          {{- else }}
             name: {{ .Values.appName }}-env
+          {{- end }}
+        {{- end }}
         ports:
         - name: http
           containerPort: {{ .Values.service.targetPort }}

@@ -1,0 +1,26 @@
+replicaCount: 1
+appName: service
+
+image:
+  repository: harbor.pezl.local/project_mgmt/service
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+  targetPort: 3000
+  # nodePort: 30090
+
+# registry:
+#   name: harbor
+#   secret: ewogICJhdXRocyI6IHsKICAgICJoYXJib3IucGV6bC5sb2NhbCI6IHsKICAgICAgImF1dGgiOiAiWVdSdGFXNDZTR0Z5WW05eU1USXpORFU9IgogICAgfQogIH0KfQ==
+
+# existingEnv: harbor-registy
+# env:
+#   DB_HOST: db
+#   DB_PORT: 5432
+#   DB_USER: admin
+#   DB_PASSWORD: P@ssw0rd
+#   DB_NAME: project_mgmt
+#   JWT_KEY: P@ssw0rd
