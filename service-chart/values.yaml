@@ -16,7 +16,7 @@ registry:
   name: harbor
 #   secret: ewogICJhdXRocyI6IHsKICAgICJoYXJib3IucGV6bC5sb2NhbCI6IHsKICAgICAgImF1dGgiOiAiWVdSdGFXNDZTR0Z5WW05eU1USXpORFU9IgogICAgfQogIH0KfQ==
 
-# existingEnv: harbor-registry
+# existingEnv: db-secret
 # env:
 #   DB_HOST: db
 #   DB_PORT: 5432
