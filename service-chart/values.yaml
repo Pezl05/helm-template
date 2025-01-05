@@ -18,7 +18,7 @@ registry:
 
 ingress:
   enabled: false
-  rewrite-target: /
+  rewriteTarget: /
   tls:
     secretName: project-mgmt-tls
     hosts: project-mgmt.pezl.local
