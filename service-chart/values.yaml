@@ -16,6 +16,17 @@ registry:
   name: harbor
 #   secret: ewogICJhdXRocyI6IHsKICAgICJoYXJib3IucGV6bC5sb2NhbCI6IHsKICAgICAgImF1dGgiOiAiWVdSdGFXNDZTR0Z5WW05eU1USXpORFU9IgogICAgfQogIH0KfQ==
 
+ingress:
+  enabled: false
+  rewrite-target: /
+  tls:
+    secretName: project-mgmt-tls
+    hosts: project-mgmt.pezl.local
+  host: project-mgmt.pezl.local
+  paths: /
+  pathType: Prefix
+
+
 # existingEnv: db-secret
 # env:
 #   DB_HOST: db
