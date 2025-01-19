@@ -19,13 +19,20 @@ spec:
       - name: {{ .Values.appName }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{- if or .Values.existingEnv .Values.env }}
+        {{- if .Values.env }}
+        env:
+        {{- range $key, $value := .Values.env }}
+        - name: {{ $key }}
+          value: {{ $value }}
+        {{- end }}
+        {{- end }}
+        {{- if or .Values.existingSecret .Values.secret }}
         envFrom:
         - secretRef:
-          {{- if .Values.existingEnv }}
-            name: {{ .Values.existingEnv }}
+          {{- if .Values.existingSecret }}
+            name: {{ .Values.existingSecret }}
           {{- else }}
-            name: {{ .Values.appName }}-env
+            name: {{ .Values.appName }}-secret
           {{- end }}
         {{- end }}
         ports:

@@ -26,9 +26,13 @@ ingress:
   paths: /
   pathType: Prefix
 
-
-# existingEnv: db-secret
-# env:
+# env: 
+#   OTEL_RESOURCE_ATTRIBUTES: "service.name=service"
+#   OTEL_EXPORTER_OTLP_ENDPOINT: http://localhost:4317 or http://localhost:4318 
+#   OTEL_LOG_LEVEL: debug
+  
+# existingSecret: db-secret
+# secret:
 #   DB_HOST: db
 #   DB_PORT: 5432
 #   DB_USER: admin
