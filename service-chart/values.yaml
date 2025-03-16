@@ -14,7 +14,7 @@ service:
 
 registry:
   name: harbor
-  secret: ewoJImF1dGhzIjogewoJCSJoYXJib3IucGV6bC5sb2NhbCI6IHsKCQkJImF1dGgiOiAiWVdSdGFXNDZVRUJ6YzNjd2NtUT0iCgkJfQoJfQp9
+  # secret: ewoJImF1dGhzIjogewoJCSJoYXJib3IucGV6bC5sb2NhbCI6IHsKCQkJImF1dGgiOiAiWVdSdGFXNDZVRUJ6YzNjd2NtUT0iCgkJfQoJfQp9
 
 ingress:
   enabled: false
